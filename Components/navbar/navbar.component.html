@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" routerLink="home">
+            <img src="assets/images/freshcart-logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse align-items-center" id="collapsibleNavId">
+            <ul *ngIf="isUserLoggedIn" class="navbar-nav me-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink="cart" routerLinkActive="active">Cart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="allOrders" routerLinkActive="active">All Orders</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" routerLink="/settings" routerLinkActive="active">Settings</a>
+                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="products" routerLinkActive="active">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="categories" routerLinkActive="active">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="brands" routerLinkActive="active">Brands</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <i class="fab fa-instagram mx-2"></i>
+                    <i class="fab fa-facebook mx-2"></i>
+                    <i class="fab fa-tiktok mx-2"></i>
+                    <i class="fab fa-twitter mx-2"></i>
+                    <i class="fab fa-linkedin mx-2"></i>
+                    <i class="fab fa-youtube mx-2"></i>
+                    <span *ngIf="isUserLoggedIn" routerLink="cart" class="position-relative cursor-pointer">
+                        <i class="fas fa-cart-shopping text-main mx-2 fa-1x"></i>
+                        <span class="bg-main text-white badge position-absolute ">{{numOfCartItems}}</span>
+                    </span>
+                    <span *ngIf="isUserLoggedIn" routerLink="wishlist" class="position-relative cursor-pointer">
+                      <i class="fa-solid fa-heart fa-1x text-danger"></i>
+                      <span class="bg-main text-white badge position-absolute ">{{numOfCartItems}}</span>
+                  </span>
+                </li>
+            </ul>
+            <ul class=" d-flex list-unstyled mt-3">
+                <li *ngIf="!isUserLoggedIn" class="mx-2">
+                    <a routerLink="register" routerLinkActive="active">Register</a>
+                </li>
+                <li *ngIf="!isUserLoggedIn" class="mx-2">
+                    <a routerLink="login" routerLinkActive="active">Login</a>
+                </li>
+                <li *ngIf="isUserLoggedIn" (click)="logOut()" class="mx-2">
+                    <a>Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,8 @@
+<div class="container">
+  <input [(ngModel)]="searchTerm" class="form-control mb-3 mt-5" type="text" placeholder="Search ...">
+  <div class="row">
+      <div *ngFor="let product of products| search: searchTerm" class="col-md-3">
+          <app-product [product]="product"></app-product>
+      </div>
+  </div>
+</div>

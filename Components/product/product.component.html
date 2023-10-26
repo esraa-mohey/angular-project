@@ -1,0 +1,15 @@
+<div class="product p-1 overflow-hidden">
+    <i (click)="addFav(product._id)" class = "fa-regular fa-heart heart"></i>
+    <div routerLink="/product/{{product._id}}" class="cursor-pointer">
+        <img class="w-100" [src]="product.imageCover" alt="">
+        <h6 class=" text-main">{{product.category.name}}</h6>
+        <h3 class="fw-bolder">{{product.title| seeMore: 2: true| buy}}</h3>
+        <div class="d-flex justify-content-between">
+            <p>{{product.price| currency:'EGP'}} </p>
+            <p><i class="fa-solid fa-star rating-color"></i> {{product.ratingsAverage}} </p>
+        </div>
+    </div>
+
+
+    <button (click)="addProductToCart(product._id)" class="btn bg-main text-white m-auto d-block">Add To Cart</button>
+</div>
